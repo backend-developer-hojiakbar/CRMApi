@@ -14,7 +14,7 @@ from all.views import UserViewSet, OmborViewSet, KategoriyaViewSet, BirlikViewSe
 
 schema_view = get_schema_view(
     openapi.Info(
-        title="booking API",
+        title="CRM API",
         default_version='v1',
         description="Mall official site description",
         terms_of_service="https://www.google.com/policies/terms/",
@@ -43,7 +43,7 @@ urlpatterns = [
     path('', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
-    path('api/', include(router.urls)),
+    path('', include(router.urls)),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     path('sotuv-hisoboti/', sotuv_hisoboti, name='sotuv_hisoboti'),
     path('xarid-hisoboti/', xarid_hisoboti, name='xarid_hisoboti'),
